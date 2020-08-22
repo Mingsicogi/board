@@ -12,9 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * user 데이터로 관리 페이지 샘플
+ *
+ * @author minssogi
+ */
 @Controller
 public class UserManage {
 
+    // make sample data for view test
     private final static List<User> userList = new ArrayList<>();
     public UserManage() {
         userList.add(new User("MIN", "JEON", "minssogi"));
@@ -23,12 +29,24 @@ public class UserManage {
         userList.add(new User("MIKE", "KIM", "rose"));
     }
 
+    /**
+     * user 관리 페이지
+     *
+     * @param model Model
+     * @return page
+     */
     @GetMapping("/userList")
     public String list(Model model) {
         model.addAttribute("userList", userList);
         return "userList";
     }
 
+    /**
+     * user 추가
+     *
+     * @param user User
+     * @return ResponseEntity
+     */
     @PostMapping("/userAdd")
     @ResponseBody
     public ResponseEntity<Object> add(User user) {
