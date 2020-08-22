@@ -11,7 +11,7 @@
     5. Spring Data JPA(DB interface)
  ---
  - 목차
-    0. HTTP Web Service 이해하기
+    1. HTTP Web Service 이해하기
         - 사용자 요청부터 서버까지 전달되고, 요청한 데이터를 처리 후 다시 사용자에게 리턴되는 과정을 정확이 이해 할 수 있습니다.
     
     1. spring boot, 웹 프로젝트 만들기
