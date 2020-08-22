@@ -1,0 +1,9 @@
+spring:
+  mvc:
+    view:
+      prefix: WEB-INF/views/
+      suffix: .jsp
+
+  devtools:
+    livereload:
+      enabled: true
