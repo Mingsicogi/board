@@ -18,6 +18,12 @@
     <link href="/resources/build/css/custom.min.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        .highlight {
+            background: red;
+        }
+    </style>
 </head>
 
 <div class="col-md-6 col-sm-6  ">
@@ -51,7 +57,7 @@
                 </thead>
                 <tbody>
                     <c:forEach var="user" items="${userList}" varStatus="status">
-                        <tr>
+                        <tr id="${user.username}">
                             <th scope="row">${status.index + 1}</th>
                             <td>${user.firstName}</td>
                             <td>${user.lastName}</td>
@@ -82,6 +88,7 @@
     </div>
 
     <button type="button" class="btn btn-round btn-success" onclick="addUser();">Add User</button>
+    <button type="button" class="btn btn-round btn-success" onclick="findMe();">Find Me</button>
 </div>
 </html>
 
@@ -104,5 +111,11 @@
                 location.reload();
             }
         });
+    }
+
+    function findMe() {
+
+        $("tr[id*='minssogi']").toggleClass('highlight')
+
     }
 </script>
