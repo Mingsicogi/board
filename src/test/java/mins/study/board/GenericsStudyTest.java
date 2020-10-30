@@ -1,7 +1,9 @@
 package mins.study.board;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import mins.study.board.app.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,9 @@ public class GenericsStudyTest {
     List<Teacher> teachers;
 
     List<Person> personList;
+
+    Node firstNode = new Node(null, 1);
+    Node secondNode = new Node(firstNode, 1);
 
     @BeforeEach
     void init() {
@@ -63,7 +68,6 @@ public class GenericsStudyTest {
         }
 
         // TODO 여자가 몇명 인지 확인하기
-
     }
 
     @Getter
