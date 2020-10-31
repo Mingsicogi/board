@@ -6,9 +6,8 @@ import lombok.Setter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.*;
 
 public class NormalObjectStudyTest {
 
@@ -40,6 +39,13 @@ public class NormalObjectStudyTest {
                 System.out.println(students.get(i).getName());
             }
         }
+
+        students.stream().map(Student::getAddress).filter("seoul"::equals).findFirst().orElseThrow();
+        Integer integer = students.stream().map(Student::getAge).max(Comparator.comparing(Integer::intValue)).get();
+
+        Map<String, Integer> map = new HashMap<>();
+
+
         for (int i = 0; i < teachers.size(); i++) {
             if("Seoul".equals(teachers.get(i).getAddress())) {
                 System.out.println(teachers.get(i).getName());
@@ -61,6 +67,7 @@ public class NormalObjectStudyTest {
         private String address;
         private List<Course> courseList;
 
+        // ...
         private Long studentId;
 
         public Student(String name, Integer age, String gender, String address, Long studentId) {
@@ -81,6 +88,7 @@ public class NormalObjectStudyTest {
         private String address;
         private List<Course> courseList = new ArrayList<>();
 
+        // ...
         private Long teacherId;
 
         public Teacher(String name, Integer age, String gender, String address, Long teacherId) {
